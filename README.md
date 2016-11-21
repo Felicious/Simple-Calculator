@@ -4,29 +4,30 @@ This simple calculator can do simple arithmetic like adding, subtracting, multip
 #include <string>
 
 using namespace std;
-string whatfunction(string input);
+void whatfunction(string input, string &m);
 
 int main()
 {
     string input; //input = 45 + 52
-    cin>>input;
-    string funct = whatfunction(input);
-    
+    getline(cin, input);
+    string m = "";
+    whatfunction(input,m);
+
     return 0;
 }
-string whatfunction(string input){
-    for (int i = 0, i < input.length(), i++){
+void whatfunction(string input, string &m){
+    for (int i = 0; i < input.length(); i++){
         if (input[i] == '+'){
-            return addition;
+            m = "add";
         }
         else if (input[i] == '-'){
-            return subtraction;
+            m = "sub";
         }
         else if (input[i] == '/'){
-            return division;
+            m = "div";
         }
         else if (input[i] == '*'){
-            return multiplication;
+            m = "mul";
         }
     }
 }
